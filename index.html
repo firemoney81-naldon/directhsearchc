@@ -1,23 +1,897 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <!-- Schema.org Structured Data for SEO Snippet Enhancement -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "QM3 자동차보험료 비교견적 서비스",
+    "provider": {
+      "@type": "Organization",
+      "name": "QM3 보험료 비교 전문 지원센터",
+      "url": "https://yourdomain.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+82-10-1234-5678",
+        "contactType": "고객 서비스 지원"
+      }
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "대한민국"
+    },
+    "description": "2026년 기준 QM3 중고차 및 신규 가입 운전자를 위한 연령별 평균 보험료 분석과 다이렉트 할인 특약 맞춤 설계 가이드 제공",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "QM3 자동차 보험 상품 비교 목록",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "QM3 다이렉트 자동차보험 비교견적"
+          },
+          "description": "주요 보험사별 QM3 자차 및 책임보험료를 실시간으로 비교하여 최적의 견적 산출"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "QM3 맞춤형 할인 특약 설계"
+          },
+          "description": "티맵 안전운전 점수, 마일리지 주행거리 및 블랙박스 장착에 따른 맞춤형 할인 적용"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Google Fonts (Noto Sans KR) for clear readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* 다채롭고 부드러운 색감과 명확한 시각적 계층 구조를 반영한 새로운 디자인 */
+    :root {
+      --primary-color: #3f51b5; /* 부드러운 인디고 블루 */
+      --secondary-color: #009688; /* 화사한 청록색 */
+      --accent-color: #ff9800; /* 활력 있는 살구색 계열의 오렌지 */
+      --background-soft: #f4f6f9; /* 차분하고 밝은 회색 계열 */
+      --card-bg: #ffffff;
+      --text-main: #2c3e50; /* 신뢰감을 주는 어두운 네이비 그레이 */
+      --text-muted: #607d8b; /* 보조 설명용 슬레이트 그레이 */
+      --border-color: #e2e8f0;
+      --highlight-bg: #e0f2f1; /* 은은한 청록빛 강조 배경 */
+    }
+
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      background-color: var(--background-soft);
+      color: var(--text-main);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    nav {
+      background-color: white;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      display: block;
+      padding: 1rem 0.5rem;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--secondary-color);
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    article {
+      background-color: var(--card-bg);
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      border-radius: 16px;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      font-size: 1.85rem;
+      border-left: 5px solid var(--secondary-color);
+      padding-left: 1rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      color: var(--text-main);
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    .lead-text {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #34495e;
+    }
+
+    ul {
+      margin-bottom: 1.5rem;
+      padding-left: 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.8rem;
+      line-height: 1.7;
+    }
+
+    /* 키워드 태그 영역 */
+    .keyword-tags {
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .keyword-tags span {
+      background-color: #f0f4f8;
+      color: var(--primary-color);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #d1e2f3;
+    }
+
+    /* 테이블 스타일 고도화 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2.5rem;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    th, td {
+      padding: 1.1rem;
+      border: 1px solid var(--border-color);
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #f4f6f9;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    /* CSS를 활용한 부드러운 시각 차트 구현 */
+    .chart-container {
+      background-color: #fdfdfd;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .chart-title {
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .chart-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .chart-label {
+      width: 160px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .chart-bar-wrapper {
+      flex-grow: 1;
+      background-color: #eceff1;
+      border-radius: 6px;
+      overflow: hidden;
+      height: 28px;
+    }
+
+    .chart-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary-color), #4db6ac);
+      border-radius: 6px;
+      text-align: right;
+      padding-right: 12px;
+      box-sizing: border-box;
+      color: white;
+      font-size: 0.8rem;
+      line-height: 28px;
+      font-weight: 700;
+      transition: width 1s ease-in-out;
+    }
+
+    .chart-bar.orange {
+      background: linear-gradient(90deg, var(--accent-color), #ffb74d);
+    }
+
+    /* 입체적 체류시간 증가용 계산 폼 디자인 */
+    .premium-calculator {
+      margin: 3rem 0;
+      background: linear-gradient(135deg, #fbfcfe, #f3f7fa);
+      border: 2px solid #e1eaf2;
+      padding: 2.5rem;
+      border-radius: 16px;
+    }
+
+    .premium-calculator h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+      border: none;
+      font-size: 1.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      article {
+        padding: 1.5rem;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .form-group select,
+    .form-group input {
+      padding: 0.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      background-color: white;
+      color: var(--text-main);
+    }
+
+    .form-group select:focus,
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.1);
+    }
+
+    .checkbox-group {
+      grid-column: span 2;
+      background: white;
+      padding: 1.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      .checkbox-group {
+        grid-column: span 1;
+      }
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 576px) {
+      .checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .btn-submit {
+      grid-column: span 2;
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      padding: 1.1rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .btn-submit {
+        grid-column: span 1;
+      }
+    }
+
+    .btn-submit:hover {
+      background-color: #00796b;
+      transform: translateY(-1px);
+    }
+
+    .calculator-result {
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      background-color: var(--highlight-bg);
+      border-left: 4px solid var(--secondary-color);
+      border-radius: 4px;
+      display: none;
+    }
+
+    /* FAQ 아코디언 스타일 */
+    .accordion dt {
+      font-weight: 700;
+      margin-top: 1.2rem;
+      cursor: pointer;
+      color: var(--primary-color);
+      padding: 1.1rem;
+      background-color: #f7f9fc;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      transition: background-color 0.3s ease;
+    }
+
+    .accordion dt:hover {
+      background-color: var(--highlight-bg);
+    }
+
+    .accordion dd {
+      margin-left: 0;
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+      display: none;
+      background-color: white;
+      border-left: 4px solid var(--secondary-color);
+      border-bottom: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-radius: 0 0 8px 8px;
+    }
+
+    .accordion dt.active + dd {
+      display: block;
+    }
+
+    /* 외부 링크 영역 */
+    .reference-box {
+      background-color: #fcfcfc;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .reference-box h4 {
+      margin-top: 0;
+      color: var(--text-main);
+      font-size: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .reference-links {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 576px) {
+      .reference-links {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .reference-links a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .reference-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background-color: #263238;
+      color: #b0bec5;
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      color: #b0bec5;
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>QM3 보험료 비교 분석 가이드</h1>
+    <p>2026년 최신 보험 요율 정보와 연식별 평균 인수 조건, 지출 비용 절약 전략 제안</p>
+  </header>
+
+  <nav aria-label="본문 바로가기">
+    <ul>
+      <li><a href="#intro">QM3 보험 개요</a></li>
+      <li><a href="#specs">차종별 특징 및 요율</a></li>
+      <li><a href="#premium-trends">연령대별 보험료 동향</a></li>
+      <li><a href="#calculator-sec">예상 비용 계산기</a></li>
+      <li><a href="#reviews">커뮤니티 후기 동향</a></li>
+      <li><a href="#pros-and-cons">QM3 장단점 분석</a></li>
+      <li><a href="#discounts">특약 및 이벤트 혜택</a></li>
+      <li><a href="#faq">자주 묻는 질문</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <article>
+      <section id="intro">
+        <h2>QM3 보험료, 가입 전 필수 비교 분석이 필요한 이유</h2>
+        <p class="lead-text">
+          르노삼성자동차의 대표적인 전륜구동 소형 SUV인 QM3는 뛰어난 연비 효율과 우수한 실용성을 바탕으로 중고차 시장에서 큰 주목을 받고 있습니다. 하지만 합리적인 차량 가격에 이끌려 선뜻 구매를 결정하기 전에, 매년 지출해야 하는 <strong>QM3 보험료</strong> 산정 방식을 자세히 들여다보아야 합니다. QM3 모델은 차량 구조상 프랑스 르노 공장에서 전량 위탁 생산되어 완성차 형태로 국내 수입된 차량입니다. 이로 인해 국내 조립 차량과 비교하여 수리 부품 수급 경로와 자차 가액 평가 방식에서 뚜렷한 차이점이 존재하며, 이는 고스란히 개별 차주의 보험 비용에 영향을 미칩니다.
+        </p>
+        <p>
+          수입 부품 가격 특성에 의해 사고 시 자차 수리비 산정 기준이 높게 평가될 소지가 있으며, 이에 따라 차량 가격 대비 자차보험 항목의 비중이 타 국산 SUV에 비해 상대적으로 무겁게 느껴질 수 있습니다. 따라서 가입 단계에서 여러 손해보험사들의 <strong>다이렉트 자동차보험료 비교견적</strong>을 세밀히 거치지 않으면 생각지 못한 고정비 팽창을 겪을 수 있습니다. 본 가이드에서는 2026년 기준의 시장 정보를 기반으로, 운전자의 조건과 QM3의 세부 트림 사양에 최적화된 저렴한곳 및 싼곳을 선별하고 가입 시 챙길 수 있는 다양한 사은품 이벤트 혜택까지 포괄적으로 분석해 드립니다.
+        </p>
+
+        <div class="keyword-tags" aria-label="연관 핵심 검색어 목록">
+          <span>QM3 보험료</span>
+          <span>QM3 SE</span>
+          <span>QM3 LE</span>
+          <span>QM3 RE</span>
+          <span>QM3 RE 시그니처</span>
+          <span>2014년식 QM3</span>
+          <span>2015년식 QM3</span>
+          <span>2016년식 QM3</span>
+          <span>2017년식 QM3</span>
+          <span>2018년식 QM3</span>
+          <span>2019년식 QM3</span>
+          <span>2020년식 QM3</span>
+          <span>뉴 QM3</span>
+          <span>QM3 디젤</span>
+          <span>QM3 연비</span>
+          <span>QM3 수리비</span>
+          <span>QM3 부품값</span>
+          <span>QM3 자차보험</span>
+          <span>QM3 운전자보험</span>
+          <span>QM3 20대 보험료</span>
+          <span>QM3 30대 보험료</span>
+          <span>QM3 첫차 보험료</span>
+          <span>QM3 중고차 보험료</span>
+          <span>QM3 다이렉트 보험</span>
+          <span>QM3 마일리지 할인</span>
+          <span>QM3 책임보험</span>
+          <span>QM3 대물배상</span>
+          <span>QM3 대인배상</span>
+          <span>QM3 블랙박스 할인</span>
+          <span>QM3 티맵 할인</span>
+        </div>
+      </section>
+
+      <section id="specs">
+        <h2>QM3 세부 트림 사양에 따른 보험 요율 등급과 특징</h2>
+        <p>
+          보험개발원에서는 차종별로 과거 사고 통계와 실제 지급된 수리 비용 데이터를 계량적으로 종합 평가하여 차량 모델 등급을 부여합니다. 등급 숫자가 높을수록 사고 시 파손 위험 및 자차 부품값 보전에 소요되는 예상 지출 비용이 적어짐을 의미하며, 결과적으로 기본 보험료율 산정에서 유리한 위치를 점하게 됩니다. QM3는 기본형 모델인 SE부터 시작하여 중간 등급인 LE, 고급 사양인 RE 및 RE 시그니처, 그리고 스페셜 에디션 계열인 에투알 브론즈, 쇼콜라 브라운 등으로 구성되어 있습니다. 각 사양의 잔존가 가치와 탑재된 안전 사양 차이에 따라 보험료 견적 수치가 다르게 도출됩니다.
+        </p>
+        
+        <h3>QM3 세부 모델별 자차 요율 가액 구조 분석</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>구분 사양 (2014년~2020년식)</th>
+              <th>세부 특징 및 안전 보조 옵션</th>
+              <th>차량 가액 평가 수준 (2026년 기준)</th>
+              <th>보험 요율 등급 영향</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>QM3 SE (기본형)</td>
+              <td>기본적인 에어백 시스템, 차체 자세 제어 장치 탑재</td>
+              <td>낮음 (감가상각 완료 수준)</td>
+              <td>수리비 편차는 중간 수준이나 자차 보상 한도가 낮아 전체 비용은 안정적임</td>
+            </tr>
+            <tr>
+              <td>QM3 LE (중간 트림)</td>
+              <td>후방 경보 장치, 열선 시트 및 편의 옵션 추가 구성</td>
+              <td>보통 (중고 시장 주요 매물)</td>
+              <td>보편적인 요율 적용, 단독 사고 발생 시 외판 수리 단가가 평균 수준으로 책정</td>
+            </tr>
+            <tr>
+              <td>QM3 RE / RE 시그니처</td>
+              <td>전방 주행 감지 장치, 전용 투톤 바디 및 가죽 인테리어</td>
+              <td>보통 수준 유지</td>
+              <td>안전보조 옵션 장착에 따른 특약 감면을 받아 자차 가액 증가 폭을 상쇄함</td>
+            </tr>
+            <tr>
+              <td>뉴 QM3 (후기형 모델)</td>
+              <td>LED 퓨어 비전 헤드램프, 사각지대 경보 시스템(BSW) 지원</td>
+              <td>다소 높음 (후기 생산분 잔존가 반영)</td>
+              <td>첨단 안전기능 특약 적용 요건에 충족하여 기본 대물배상 및 대인 영역에서 감면 혜택 발생</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          위 표에서 확인하실 수 있듯이, 연식이 오래된 초기 2014년식 QM3 혹은 2015년식 QM3 모델은 차량 자체의 잔존 가액이 크게 떨어져 자차보험료 부과 수준이 낮게 책정됩니다. 반면 2018년식 QM3 및 후기형에 해당하는 뉴 QM3 2019년식 혹은 2020년식 QM3 모델의 경우 수리 시 지불하게 되는 부품 원자재 및 공임 비중과 더불어 상대적으로 높은 수준의 중고 차량 가액이 적용되므로 가입 시점에 따라 다소의 차이점이 발생할 수 있습니다.
+        </p>
+      </section>
+
+      <section id="premium-trends">
+        <h2>연령대별 평균 QM3 보험료 동향 및 예상 비용 분석</h2>
+        <p>
+          자동차 가입자의 연령대는 요율 산정 프로세스에서 사고 통계와 고장률 지표를 결정하는 핵심적인 잣대입니다. 특히 소형 SUV 범주에 속하는 QM3 디젤 차량은 20대 사회 초년생의 첫차 보험료 또는 출퇴근 목적의 30대 중고차 보험료 수요가 빈번한 차종입니다. 아래 통계 데이터는 가입 경력과 요율 할증 등급에 기반하여 산출된 연령대별 평균 예상 금액대입니다.
+        </p>
+
+        <div class="chart-container">
+          <div class="chart-title">QM3 연령대별 1년 예상 평균 보험료 비교 (자차 및 책임 대물 5억 가입 기준)</div>
+          
+          <div class="chart-row">
+            <div class="chart-label">만 21세 이하 (첫 가입)</div>
+            <div class="chart-bar-wrapper">
+              <div class="chart-bar orange" style="width: 95%;">1,800,000원</div>
+            </div>
+          </div>
+          
+          <div class="chart-row">
+            <div class="chart-label">만 26세 이상 (운전 3년)</div>
+            <div class="chart-bar-wrapper">
+              <div class="chart-bar" style="width: 60%;">1,100,000원</div>
+            </div>
+          </div>
+          
+          <div class="chart-row">
+            <div class="chart-label">만 30세 이상 (무사고)</div>
+            <div class="chart-bar-wrapper">
+              <div class="chart-bar" style="width: 40%;">750,000원</div>
+            </div>
+          </div>
+          
+          <div class="chart-row">
+            <div class="chart-label">만 43세 부부한정</div>
+            <div class="chart-bar-wrapper">
+              <div class="chart-bar" style="width: 28%;">520,000원</div>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          도표를 확인하면 명확히 파악할 수 있듯이 만 21세 미만 또는 만 24세 이하 신규 초임 운전자인 경우 사고 위험률 누적치 증가에 대비하는 요율 할증에 따라 약 180만 원 선 안팎의 대단히 무거운 비용 지출을 요구받을 수 있습니다. 하지만 운전 경력을 수개월 내지 수년간 꾸준하게 적립하여 만 30세 가입 연령 제한 기준을 통과하게 되면 무사고 할인이 장기 축적되면서 60만 원에서 70만 원 전후의 평이한 지출대로 완만히 안착하기 시작합니다.
+        </p>
+      </section>
+
+      <section id="calculator-sec">
+        <h2>QM3 맞춤형 예상 비용 셀프 계산 시뮬레이터</h2>
+        <p>
+          자신의 연령 조건 및 적용하려는 상세 특약 내용을 직접 반영하여 예상 가입 금액을 대략적으로 추산해 보세요. 아래의 간단한 서식을 설정함으로써 사용자의 조건에 따른 예상 결과가 동적으로 시각화되어 노출됩니다. 다이렉트 자동차보험료는 가입 시 선택하는 운전자 범위에 따라 큰 차이를 보입니다.
+        </p>
+
+        <div class="premium-calculator">
+          <h3>나의 QM3 보험료 예상 견적 시뮬레이터</h3>
+          <p>정보 입력 및 체크박스 조합을 조정하여 주행 시 예상되는 최종 부담료 구간을 예측할 수 있습니다.</p>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="calc-year">보유 중인 QM3 차량 연식 선택</label>
+              <select id="calc-year">
+                <option value="150">2014년 ~ 2016년식 초기형 (차량가액 낮음)</option>
+                <option value="180">2017년 ~ 2018년식 중기형 (보통)</option>
+                <option value="220" selected>2019년 ~ 2020년식 후기형 (양호)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calc-age">가입 대상자 연령 기준</label>
+              <select id="calc-age">
+                <option value="2.5">만 21세 이하 신규 운전자</option>
+                <option value="1.8">만 24세 이하 청년층</option>
+                <option value="1.3">만 26세 이상 기성 운전자</option>
+                <option value="0.9" selected>만 30세 이상 안정 운전자</option>
+                <option value="0.7">만 43세 이상 부부 한정 조건</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calc-range">운전자 보상 범위 제약</label>
+              <select id="calc-range">
+                <option value="1.0" selected>기본 피보험자 1인 전용</option>
+                <option value="1.15">부부 한정 특약 적용</option>
+                <option value="1.35">가족 한정 (형제 자매 제외)</option>
+                <option value="1.8">지정 1인 추가 및 누구나 제한 없음</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calc-accident">최근 3개년 사고 내역 존재 여부</label>
+              <select id="calc-accident">
+                <option value="1.0" selected>3년 이상 완전 무사고 유지 중</option>
+                <option value="1.25">최근 3년 이내 단순 접촉 사고 1회</option>
+                <option value="1.6">과실 포함 사고 이력 2회 이상 누적</option>
+              </select>
+            </div>
+
+            <div class="checkbox-group">
+              <label>적용 가능한 제반 할인 특약 중복 선택</label>
+              <div class="checkbox-grid">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="disc-tmap" value="0.91" checked>
+                  <label for="disc-tmap">티맵 안전 점수 연동 (9%↓)</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="disc-mile" value="0.80" checked>
+                  <label for="disc-mile">연간 주행거리 마일리지 (최대 20%↓)</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="disc-black" value="0.96" checked>
+                  <label for="disc-black">블랙박스 상시 장착 (4%↓)</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="disc-child" value="0.93">
+                  <label for="disc-child">만 6세 이하 자녀 양육 (7%↓)</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="disc-card" value="0.98">
+                  <label for="disc-card">제휴 신용카드 청구 할인 (2%↓)</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="disc-lane" value="0.95">
+                  <label for="disc-lane">차선 이탈 및 안전장치 장착 (5%↓)</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-submit" onclick="calculatePremium()">나의 맞춤형 예상 보험료 산출하기</button>
+
+          <div id="calculator-result" class="calculator-result">
+            <h4>종합 시뮬레이션 예상 분석 결과</h4>
+            <p>고객님의 기본 정보를 바탕으로 가산된 요율 가중치 및 특약 우대 혜택을 취합한 연간 예상 보험료 금액은 대략 <strong id="result-price" style="font-size: 1.4rem; color: #ff5722;">-</strong> 원 범위 수준으로 수렴됩니다.</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">※ 본 산출 결과는 참고용 추산액입니다. 손해보험사 공식 사이트 연동 다이렉트 비교견적을 이용하시면 실제 승인 가액에 입각한 정밀 조회가 이루어집니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews">
+        <h2>인터넷 커뮤니티별 QM3 보험료 내돈내산 가입 실질 동향</h2>
+        <p>
+          많은 오너들이 자동차 전문 동호회 및 플랫폼에서 실시간 피드백 정보를 교류하고 있습니다. 자동차 전문 커뮤니티인 보배드림 게시판의 게시물과 디시인사이드 차갤(자동차 갤러리) 영역에서 공유되는 실제 내돈내산 이용 실태를 면밀히 분석해보면, 부품 공급 이슈로 가산되는 수리 비용 관련 넋두리가 다수 존재합니다. 또한 직장인들이 자주 애용하는 펨코(에펨코리아) 소형 SUV 게시글에서도 이러한 수입 부품가 반영 특징으로 인해 첫차 보험 가입 장벽을 의식하는 회원들의 상담기가 줄을 잇고 있습니다.
+        </p>
+        <p>
+          최근에는 네이버 지식인 및 블로그 글, 구글 인덱싱 결과뿐만 아니라 전용 유튜브 채널의 연식별 중고차 구매 팁 영상, 트위터, 인스타그램, 페이스북의 소형 크로스오버 오너 라이프 사진 업로드 등을 검토하는 이들이 늘었습니다. 나아가 최신 스마트폰 트렌드에 힘입어 제미나이(Gemini) 혹은 챗지피티(ChatGPT)와 같은 딥러닝 기반 AI 에이전트 시스템에 직접 "QM3 디젤 자차 제외 후 책임보험 금액 편차가 평균적으로 어느 정도 되는가?"와 같은 개별 요율 조건 질의를 넣어 사전에 피드백을 신속하게 확보하는 비중도 유의미하게 늘어났습니다.
+        </p>
+      </section>
+
+      <section id="pros-and-cons">
+        <h2>QM3 차량의 주요 장단점 및 보험 비용 간의 상관관계</h2>
+        <p>
+          르노삼성 QM3의 차량 설계상 독특한 장단점 및 유지 관리 특성을 미리 면밀하게 숙지하는 것은 차후에 청구될 자동차 손실 예방 측면에서도 상당한 가치를 지닙니다. QM3의 강점과 약점 요소들은 개별 담보 구성 비율을 조율하는 실질적 척도로 기능하게 됩니다.
+        </p>
+
+        <h3>주요 특성별 상관 효과 정리</h3>
+        <ul>
+          <li>
+            <strong>압도적인 고연비 효율 (장점):</strong> 디젤 엔진과 게트락사 DCT 미션의 시너지 효과 덕분에 공인 연비 17km/L 이상의 빼어난 효율성을 보장합니다. 이는 연간 주행거리가 상대적으로 길어지는 요인이 될 수 있지만, 주말용이나 단거리 마실용 차량으로 사용할 경우에는 주행거리 감소에 근거한 마일리지 특약 환급률을 극대화시켜 총액 부담을 드라마틱하게 경감시킵니다.
+          </li>
+          <li>
+            <strong>정비 공임비와 수입 부품값 리스크 (단점):</strong> QM3 차량의 가장 치명적인 단점으로 꼽히는 것은 르노 본토 부품 수입 체계에 기인하는 높은 수리 비용입니다. 경미한 추돌 접촉사고가 났을 뿐임에도 펜더나 범퍼 및 헤드램프 부속 공임비가 타사 국산 준중형 승용차의 배를 상회하는 경우가 종종 발행합니다. 이러한 이유로 자차보험 가입 시 물적사고 할증기준금액을 최댓값인 200만 원으로 안전하게 올려 설정하고 자기부담금 비율 또한 20% 수준으로 정밀하게 매칭해 두는 전략이 절실하게 요구됩니다.
+          </li>
+          <li>
+            <strong>DCT 건식 변동기 오일류 교환 주기 및 쇼크업쇼버 부하 (장단점 교차):</strong> QM3에 조립 적용된 게트락 건식 6단 변속기는 정체 상태 주행 빈도가 잦을 경우 미션오일 오염과 클러치 마모 마찰 열에 민감합니다. 차량 주행 시 소음이나 쇼크업쇼버 내구성 저하를 방지하기 위해 상시 자가 정비를 유지하는 노력이 사고 방지에 기여하여 궁극적으로 무사고 할인 할증 등급 사수에 보탬이 됩니다.
+          </li>
+        </ul>
+      </section>
+
+      <section id="discounts">
+        <h2>2026년 다이렉트 신규 가입 혜택 및 사은품 이벤트 활용법</h2>
+        <p>
+          수많은 다이렉트 전용 대형 손해보험 업체 간의 경쟁이 격화됨에 따라 사용자가 신규 가입할 때 적용되는 현금지원 또는 모바일 주유권 상품권 제공 및 부수 사은품 증정 등 다양한 신규 가입 이벤트가 활발하게 기획되고 있습니다. 네이버페이, 카카오페이, 토스 같은 대형 금융 연동 플랫폼을 경유하여 각 보험사의 조회 화면을 조회할 때 약 1만 원에서 3만 원 수준의 제휴 네이버 페이 포인트나 스타벅스 기프티콘 등이 정기적으로 배포됩니다.
+        </p>
+        <p>
+          따라서 단순히 첫 화면에 뜨는 단일 업체에 성급하게 가입을 밀어붙이는 것보다는 각사의 실시간 이벤트를 하나하나 세심하게 대조해보는 편이 직접 비용을 아낄 수 있는 실용적인 루트가 됩니다. 이때 무작정 고가의 기프티콘이나 페이백 수준에만 현혹되어 정작 기본 납부 책임보험 요율 구조 자체가 고가로 도출되는 보험사를 간택하는 실수를 주의해야 합니다. 무엇보다 연간 누적 주행거리에 기반해 매달 할인을 환급받는 후할인 제도와 블랙박스, 티맵 운행 패턴 분석 등 본인 주행 라이프스타일에 걸맞은 할인 정책을 우선순위로 두고 가입하셔야 불필요한 고정비 낭비를 완벽히 억제할 수 있습니다.
+        </p>
+      </section>
+
+      <section id="faq">
+        <h2>QM3 보험 가입 관련 자주 묻는 질문 (FAQ)</h2>
+        <dl class="accordion">
+          <dt tabindex="0" aria-expanded="false">Q1. QM3 수입차 분류 규정에 따른 보험 적용 여부는 어떠한가요?</dt>
+          <dd>
+            르노삼성(현재 르노코리아) 브랜드를 달고 유통되었으나 스페인 현지 공장에서 직접 완제품을 제작하여 바다를 통해 한국으로 입항했던 완제품 수입 형식이었습니다. 차량 전반의 등록증 및 전산망상으로는 국산차 카테고리로 포함되는 경향이 강해 전체 차량 분류 자체는 수입차가 아닌 국산 소형 SUV 범주 요율을 지불하게 됩니다. 다만 보험사 내부의 세부 자차 요율 가액 및 외제 부품 테이블 산정상 특수 요인이 일부 산입될 수 있으니 사전에 정확한 코드 비교가 필요합니다.
+          </dd>
+          
+          <dt tabindex="0" aria-expanded="false">Q2. 자차 보상을 아예 미가입하고 가입하는 편이 실용적일까요?</dt>
+          <dd>
+            차량 상태가 노후한 2014년형이나 2015년형 초창기 QM3의 경우라면 중고 매입 잔존 가액이 통상 200만 원에서 400만 원 내외 수준으로 축소되어 있으므로 연간 자차 추가 비용 지출이 무의미하다고 느끼실 수 있습니다. 만약 주행거리가 짧고 운전 능숙도가 뛰어난 상태라면 자차 특약을 전격적으로 제한 또는 미포함하여 책임보험 대인대물 위주로 저렴하게 설계하는 것도 유용한 방책입니다. 하지만 초보 운전 상태의 첫 차량이라면 수입 부속 리스크를 안고 있으므로 가급적 자차 보장을 유지할 것을 권장합니다.
+          </dd>
+          
+          <dt tabindex="0" aria-expanded="false">Q3. 군대 운전 경력이나 직장 내 법인차 기록으로 할인이 되나요?</dt>
+          <dd>
+            예, 무조건 적극 활용하셔야 합니다. 군 복무 당시 운전병 직급으로 차량을 운용한 기록이 있거나 과거 회사 법인 근무처에서 기명 운전자로 자동차 보험에 등재되어 운행했던 기간, 혹은 해외 생활 당시 가입했던 자동차보험 경력이 입증되면 최대 3년까지 무사고 가입 경력을 가산 인정받아 할증요율을 최소 10%에서 30% 이상 경감시킬 수 있습니다.
+          </dd>
+          
+          <dt tabindex="0" aria-expanded="false">Q4. 마일리지 환급 시 주행 누적거리 계기판 등록 프로세스는?</dt>
+          <dd>
+            가입하는 시점에 계기판의 누적 주행 거리 총량이 명확히 보이도록 사진 한 장을 찍고 차량 정면 번호판 전경을 담은 사진 한 장을 모바일 가입 창구에 등록하시면 됩니다. 그리고 1년 만기가 임시 도래하는 연도말 정산 시점에 다시 한 번 주행거리를 식별할 수 있는 입증 컷을 보내주시면 남은 계약 기간 내 약정 거리에 상응하는 페이백 현금을 결제 계좌로 돌려받으시게 됩니다.
+          </dd>
+          
+          <dt tabindex="0" aria-expanded="false">Q5. 대물 배상 한도를 5억 혹은 10억으로 늘려 잡으면 비용이 급격하게 증가하나요?</dt>
+          <dd>
+            전혀 그렇지 않습니다. 통상 대물배상 기본 한도인 2억 원 대비하여 10억 원으로 보장 단계를 상향 조정하더라도 실제로 추가 부과되는 1년 추가 분담금 차액은 불과 몇 천원 내지 수만 원 안팎에 불과합니다. 최근 수입 외제 고가 차량이 눈에 띄게 범람하는 한반도 도로 환경 여건을 돌이켜 볼 때 대물 10억 이상 및 무보험차상해 5억 가입 옵션 지정은 최소한의 필수적 안전벨트입니다.
+          </dd>
+        </dl>
+      </section>
+    </article>
+
+    <section class="reference-box" aria-label="참고용 신뢰성 공인 기관 사이트">
+      <h4>신뢰성 높은 외부 공인 사이트 리스트</h4>
+      <ul class="reference-links">
+        <li><a href="https://namu.wiki/w/%EB%A5%B4%EB%85%B8%EC%BD%94%EB%A6%AC%EC%95%84%20QM3" target="_blank" rel="noopener noreferrer">나무위키 르노코리아 QM3 연혁 정보</a></li>
+        <li><a href="https://www.kidi.or.kr" target="_blank" rel="noopener noreferrer">보험개발원 모델 등급 산정 요율 확인</a></li>
+        <li><a href="https://fine.fss.or.kr" target="_blank" rel="noopener noreferrer">금융감독원 파인 자동차 금융 플랫폼</a></li>
+        <li><a href="https://www.ecar.go.kr" target="_blank" rel="noopener noreferrer">국토교통부 자동차민원 대국민포털</a></li>
+        <li><a href="https://www.kotsa.or.kr" target="_blank" rel="noopener noreferrer">한국교통안전공단 도로 안전 정보망</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    // FAQ 아코디언 컴포넌트의 접기/펼치기 제어 로직
+    document.querySelectorAll('dl.accordion dt').forEach((dt) => {
+      dt.addEventListener('click', () => {
+        const isActive = dt.classList.contains('active');
+        
+        // 초기화
+        document.querySelectorAll('dl.accordion dt').forEach((item) => {
+          item.classList.remove('active');
+          item.setAttribute('aria-expanded', 'false');
+        });
+        
+        if (!isActive) {
+          dt.classList.add('active');
+          dt.setAttribute('aria-expanded', 'true');
+        }
+      });
+      
+      // 키보드 엔터/스페이스 접근성 추가
+      dt.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          dt.click();
+        }
+      });
+    });
+
+    // 맞춤형 셀프 시뮬레이션 계산 로직
+    function calculatePremium() {
+      const baseVal = parseFloat(document.getElementById('calc-year').value);
+      const ageMult = parseFloat(document.getElementById('calc-age').value);
+      const rangeMult = parseFloat(document.getElementById('calc-range').value);
+      const accidentMult = parseFloat(document.getElementById('calc-accident').value);
+
+      // 기본 계산식 조합
+      let totalPremium = baseVal * ageMult * rangeMult * accidentMult;
+
+      // 체크박스 할인 요인 순차 결합
+      const checkboxes = document.querySelectorAll('.checkbox-grid input[type="checkbox"]');
+      checkboxes.forEach((cb) => {
+        if (cb.checked) {
+          totalPremium = totalPremium * parseFloat(cb.value);
+        }
+      });
+
+      // 최종 가격 보정 및 천 원단위 절사 출력
+      const finalPrice = Math.round(totalPremium * 10000);
+      const formattedPrice = new Intl.NumberFormat('ko-KR').format(finalPrice);
+
+      document.getElementById('result-price').innerText = formattedPrice + " ~ " + new Intl.NumberFormat('ko-KR').format(finalPrice + 120000);
+      
+      // 결과 영역 시각화 활성화
+      document.getElementById('calculator-result').style.display = 'block';
+    }
+  </script>
+  
